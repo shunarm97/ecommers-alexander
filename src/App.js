@@ -6,6 +6,7 @@ import Product from './pages/Product';
 import ProtectedPages from './pages/ProtectedPages';
 import Cart from './pages/Cart';
 import Success from './pages/Success';
+import Inicio from './pages/Inicio';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path='/signup'  />
         {/*Rutas protegidas*/}
         <Route element={<ProtectedPages />} >
-          <Route path='/' element={<h1>Inicio</h1>} />
+          <Route path='/' element={<Inicio/>} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:id' element={<Product />} />
           <Route path='/cart' element={<Cart />} />
