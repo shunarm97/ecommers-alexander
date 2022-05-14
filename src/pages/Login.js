@@ -31,9 +31,11 @@ const Login = () => {
 
     return (
         <div>
+
+            <h1>Ingrese sus Datos por aqui</h1>
             <form onSubmit={handleSubmit(onSubmit)}  >
                 <label htmlFor='email'>Email</label>
-                <input id='email' placeholder='example@example.com' type='email' {...register('email')} />
+                <input id='email' placeholder='example@example.com' type='email' {...register('email')} /> <br />
                 <label htmlFor='password'>Password</label>
                 <input id='password' placeholder='Your password' type='password' {...register('password')} />
                 <input type='submit' />

@@ -61,12 +61,14 @@ const Product = () => {
         <p>{product.description}</p>
         {product.images?.map((item) => <img src={item.url} alt='' key={item.id} />)}
         <h2>productos relacionados</h2>
+        <div className="productRela">
         { filterProducts.map(product => (
           <div key={product.name}>
             <h3>{product.name}</h3>
             <img src={product.images[0].url} alt="" />
           </div>
         )) }
+        </div>
         <button onClick={ () => navigate('/cart')} >Go Cart</button>
     </div>
   );
