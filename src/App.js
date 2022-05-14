@@ -19,6 +19,7 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:id' element={<Product />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/cart/success' element={<h1> gracias por tu compra</h1>}/>
         </Route>
       </Routes>
     </div>

@@ -1,5 +1,4 @@
-import axios from "axios"
-import { getFilterCategories, getFilterProducts, getProductById, getProducts, getProductsFromCart } from "../../services"
+import { getFilterCategories, getFilterProducts, getProductById, getProducts, getProductsFromCart, deleteProductFromCart } from "../../services"
 
 export const actions =  {
     productSetAll : "@product/setAll",
@@ -31,6 +30,7 @@ export const setProductsToCart = (data) => ({
     type: actions.cartSetProducts,
     payload: data
 })
+
 
 export const setProductThunk = (category) => {
     return (dispatch) => {
@@ -81,4 +81,16 @@ export const setCartProductsThunk = () => {
                 dispatch(setProductsToCart(res))
             })
     }
+}
+
+
+
+export const deleteCartProductThunk= (id) => {
+    return (dispatch) => {
+        deleteProductFromCart(id) 
+        .then(() => {
+            dispatch(setCartProductsThunk())   
+        })
+    }
+
 }
