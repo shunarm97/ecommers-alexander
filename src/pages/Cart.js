@@ -22,10 +22,10 @@ const Cart = () => {
             postCheckout()
             .then(() => {
                 setConfirmCheckout(false)
-                navigate('/shop/success')
+                navigate('/cart/success')
             })
         }
-    }, [confirmCheckout])
+    }, [confirmCheckout, navigate])
 
     useEffect(() => {
         let amount = 0;

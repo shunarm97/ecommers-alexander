@@ -5,6 +5,7 @@ import Shop from './pages/Shop';
 import Product from './pages/Product';
 import ProtectedPages from './pages/ProtectedPages';
 import Cart from './pages/Cart';
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:id' element={<Product />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/cart/success' element={<h1> gracias por tu compra</h1>}/>
+          <Route path='/cart/success' element={<Success/>}/>
         </Route>
       </Routes>
     </div>

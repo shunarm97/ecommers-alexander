@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { setInfoProductThunk, setProductThunk } from "../redux/actions";
 import { addProductToCart } from "../services";
 
@@ -11,6 +11,7 @@ const Product = () => {
   const filterProducts = useSelector(state => state.products)
   const [quantity, setQuantity] = useState(0)
   const [confirm, setConfirm] = useState(false)
+  const navigate = useNavigate()
   
   useEffect(() => {
     dispatch(setInfoProductThunk(id));
@@ -36,18 +37,24 @@ const Product = () => {
   }, [product, dispatch])
 
   const decrement = () => {
+    setConfirm(false)
     if(quantity > 0){
       setQuantity(quantity - 1)
     }
   }
- 
+ const increment = () => {
+   setConfirm(false)
+   setQuantity(quantity + 1)
+
+
+ }
   return (
     <div>
         <h1>{product.name}</h1>
         <div>
           <button onClick={decrement}>-</button>
           {quantity}
-          <button onClick={() => setQuantity(quantity + 1)} >+</button>
+          <button onClick={increment} >+</button>
           <br/>
           <button onClick={() => setConfirm(true)} >Add To Cart</button>
         </div>
@@ -60,6 +67,7 @@ const Product = () => {
             <img src={product.images[0].url} alt="" />
           </div>
         )) }
+        <button onClick={ () => navigate('/cart')} >Go Cart</button>
     </div>
   );
 };
